@@ -1,12 +1,12 @@
-import AddProductPage from "./pages/AddProductPage"
-import LandingPage from "./pages/LandingPage"
+import { Outlet } from "react-router-dom"
+import Navbar from "./components/Navbar"
 
 function App() {
   
-
   return (
     <>
-      
+      <Navbar/> 
+      <Outlet/> 
     </>
   )
 }

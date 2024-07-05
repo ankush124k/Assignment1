@@ -5,14 +5,21 @@ import App from "./App.jsx";
 import "./index.css";
 import LandingPage from "./pages/LandingPage.jsx";
 import AddProductPage from "./pages/AddProductPage.jsx";
+import { Provider } from "react-redux";
+import store from "../src/app/store.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage></LandingPage>,
+    element: <App />,
     children: [
       {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
         path: "addproduct",
-        element: <AddProductPage></AddProductPage>,
+        element: <AddProductPage />,
       },
     ],
   },
@@ -20,7 +27,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
